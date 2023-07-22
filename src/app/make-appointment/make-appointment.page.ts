@@ -40,9 +40,10 @@ export class MakeAppointmentPage implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if(this.notes == '0') this.notes = "";
     if(this.type=='0') this.type = "clinica geral";
-    if(this.dateToSave!='0'){
+    if(this.dateToSave !='0'){
       this.myDate = this.convertToISOFormat(this.dateToSave);
     }
+    else{this.myDate = this.minDate}
   }
 
   convertToISOFormat(dateString: string): string {
@@ -61,8 +62,8 @@ export class MakeAppointmentPage implements OnInit {
 
     this.dateToSave = day+ "-" + month + "-"+ year;
 
-    
-    this.router.navigate(["/timeslot/"+this.type+"/"+this.dateToSave+"/"+this.notes+"/"+ this.id]);
+    console.log("Data",this.dateToSave);
+    this.router.navigate(["/timeslot/"+this.type+"/"+this.dateToSave+"/"+(this.notes+" ")+"/"+ this.id]);
   }
 
   confirmAppointment() {
