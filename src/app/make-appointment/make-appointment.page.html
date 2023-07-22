@@ -1,0 +1,90 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="presentAlertLostProgress()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Marcar Consulta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab1" (click)="goToTab1()" selected="true">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>Consultas</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab2" (click)="goToTab2()">
+        <ion-icon name="medkit-outline"></ion-icon>     
+        <ion-label>Pré-Triagem</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab3" (click)="goToTab3()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <h2>Numero de utente: </h2>
+        <h2>Medico(a) de familia: </h2>
+        <h2>Unidade de saude: </h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <h2>1. Qual o tipo de consulta que quer marcar? </h2>
+      </ion-text>
+      <ion-list class="center">
+        <ion-item>
+          <ion-select aria-label="Tipo de Consilta" value="clinica geral" [(ngModel)]="type">
+            <ion-select-option value="clinica geral">clinica geral</ion-select-option>
+            <ion-select-option value="saude infantil">saude infantil</ion-select-option>
+            <ion-select-option value="saude materna">saude materna e obstetrícia</ion-select-option>
+            <ion-select-option value="diabetes">diabetes</ion-select-option>
+            <ion-select-option value="hipertensao">hipertensão arterial</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <h2>2. Qual o motivo para a marcação desta consulta? </h2>
+      </ion-text>
+      <div>
+        <ion-input placeholder="Ex.: Já não vou ao médico à muito tempo." [(ngModel)]="notes"></ion-input>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <h2>3. Escolha a data e hora para a consulta. </h2>
+      </ion-text>
+      <div class="center">
+        <ion-datetime presentation="date" [(ngModel)]="myDate" min="{{minDate}}" (ionChange)="selectHours()"></ion-datetime>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button color="success" expand="block" style="padding-left:0.5%; padding-right:0.5%;" (click)="confirmAppointment()">
+    Avançar
+  </ion-button>
+  
+</ion-content>

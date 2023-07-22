@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-content class="custom-card-content">
+      <ion-list>
+        <ion-item>
+          <div class="avatar-container">
+            <ion-avatar class="avatar">
+              <img id="avatar-image" [src]="imageUrl">
+            </ion-avatar>
+            <input id="file-input" type="file" accept="image/*" (change)="uploadImage($event)" style="display: none;">
+            <label for="file-input" class="file-input-label">
+              <ion-icon name="camera"></ion-icon>
+            </label>
+          </div>
+        </ion-item>        
+        <ion-item>
+            <ion-label>Nome</ion-label>
+            <ion-text>{{ name }}</ion-text>
+        </ion-item>        
+        <ion-item>
+          <ion-label>Número de Utente</ion-label>
+          <ion-text>{{ nsaude }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cartão de Cidadão</ion-label>
+          <ion-text>{{ ncidadao }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="button-container">
+    <div class="divider"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToContactos()">
+      <ion-icon slot="start" name="person"></ion-icon>
+      Contactos
+    </ion-button>
+    <div class="divider"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToMudarPassword()">
+      <ion-icon slot="start" name="lock-closed"></ion-icon>
+      Mudar Password
+    </ion-button>
+    <div class="divider"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToNotificacoes()">
+      <ion-icon slot="start" name="notifications"></ion-icon>
+      Notificações
+    </ion-button>
+    <div class="divider thicker"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToHelp()">
+      <ion-icon slot="start" name="help"></ion-icon>
+      Help and FAQ
+    </ion-button>
+    <div class="divider"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToSobreNos()">
+      <ion-icon slot="start" name="information-circle"></ion-icon>
+      Sobre Nós
+    </ion-button>
+    <div class="divider"></div>
+
+    <ion-button style="color: black;" expand="block" fill="clear" (click)="goToSair()">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      Sair
+    </ion-button>
+    <div class="divider"></div>
+  </div>
+
+</ion-content>

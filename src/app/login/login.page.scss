@@ -1,0 +1,78 @@
+  
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  
+
+  .form-title {
+    color: green;
+    margin-bottom: 20px;
+    margin-top: 10%;
+  }
+
+
+
+  .validation-errors {
+    margin-top: 10px;
+    color: var(--ion-color-danger);
+  }
+
+
+  .go-to-register {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+
+  ion-button.submit-btn {
+    --background: #40A26C;
+    --color: #ffffff;
+    margin-top: 20px;
+
+  }
+
+/* Center the container vertically and horizontally */
+.loading-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: calc((100% - (100vw / 3)) / 2); /* Center horizontally */
+}
+
+/* Center the content horizontally */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center the image */
+.center-image {
+  width: calc(100vw / 3); /* Resize the image to 1/3 of the screen width */
+  height: calc(100vw / 3); /* Resize the image to 1/3 of the screen width */
+}
+
+/* Center the ion-spinner */
+.center-spinner {
+  margin-top: 10px; /* Add some space between the image and the spinner */
+}

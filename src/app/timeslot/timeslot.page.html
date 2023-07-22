@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Escolher Horário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tab1" (click)="goToTab1()" selected="true">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>Consultas</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab2" (click)="goToTab2()">
+        <ion-icon name="medkit-outline"></ion-icon>     
+        <ion-label>Pré-Triagem</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="tab3" (click)="goToTab3()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+
+  <ion-card style="height: 10%;">
+    <ion-card-content style="top: 25%;">
+      <ion-text color="dark" style="text-align: center;">
+        <h2>{{date}}</h2>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <div style="margin: 0.5%;">
+    <h3>Horários Disponíveis</h3>
+  </div>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-radio-group [(ngModel)]="slot"> 
+      
+          <ion-item>
+            <ion-label>10:00h - 10:30h</ion-label>
+            <ion-radio value="10:00-10:30"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>10:30h - 11:00h</ion-label>
+            <ion-radio value="10:30-11:00"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>11:00h - 11:30h</ion-label>
+            <ion-radio value="11:00-11:30"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>11:30h - 12:00h</ion-label>
+            <ion-radio value="11:30-12:00"></ion-radio>
+          </ion-item>
+      
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="success" expand="block" style="padding-left:0.5%; padding-right:0.5%;" (click)="confirmTimeSlot()">
+    Avançar
+  </ion-button>
+</ion-content>

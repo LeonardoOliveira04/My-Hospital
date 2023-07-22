@@ -1,0 +1,41 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #000;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  
+  .content-container {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  
+  .card-padding {
+    padding: 10px;
+  }
+  
+
+  ion-button {
+    width: 30%;
+    border-radius: 30px;
+  }
+  
+  ion-button.button-container {
+    --background: #40A26C;
+    --color: #ffffff;
+    font-size: 11px;
+  }
+  

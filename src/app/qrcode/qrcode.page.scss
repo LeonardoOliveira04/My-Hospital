@@ -1,0 +1,31 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.custom-button {
+    color: black;
+    font-weight: bold;
+}
+
+.custom-card {
+    --background: #B8F1A4;
+}
+
+.custom-card ion-card-title,
+.custom-card ion-card-content,
+.custom-card ion-checkbox {
+    color: black;
+}
+
+ion-tab-button {
+    --color-selected: #044622;
+}
+
+  
+  
+  

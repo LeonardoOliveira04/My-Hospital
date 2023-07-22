@@ -1,0 +1,61 @@
+h1 {
+    //styleName: material-theme/headline/small;
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+h2 {
+    //styleName: material-theme/body/medium;
+    font-family: Roboto-Light;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: left;
+
+}
+
+h3 {
+    //styleName: material-theme/body/medium;
+    font-family: Roboto-Light;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: left;
+
+}
+
+.myCustomSelect {
+    max-width: 100% !important;
+}
+
+:root {
+    --ion-color-new: #40A26C;
+    --ion-color-new-rgb: 64, 162, 108;
+    --ion-color-new-contrast: #ffffff;
+    --ion-color-new-contrast-rgb: 255, 255, 255;
+    --ion-color-new-shade: #388f5f;
+    --ion-color-new-tint: #53ab7b;
+}
+
+.ion-color-new {
+    --ion-color-base: var(--ion-color-new);
+    --ion-color-base-rgb: var(--ion-color-new-rgb);
+    --ion-color-contrast: var(--ion-color-new-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-new-contrast-rgb);
+    --ion-color-shade: var(--ion-color-new-shade);
+    --ion-color-tint: var(--ion-color-new-tint);
+}
+
+ion-tab-button {
+    --color-selected: #044622;
+  }
+
+ion-back-button {
+    --color: #044622;
+  }

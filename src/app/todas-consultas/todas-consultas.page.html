@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Todas as Consultas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page">
+    <div class="section">
+      <h2 class="title">Proxima Consulta</h2>
+      <div class="arrow-down"></div>
+    </div>
+    <div class="card-wrapper">
+      <ion-card *ngIf="appointments.length > 0; else noAppointment" class="my-card special-card">
+        <div class="content">
+          <div class="title">Consulta de {{ appointments[0].type }}</div>
+          <div class="description">Centro de Saúde de Rio de Mouro.</div>
+          <div class="separator"></div>
+          <div class="info-row">
+            <div class="date">
+              <ion-icon name="calendar"></ion-icon>
+              {{ appointments[0].date }}
+            </div>
+            <div class="time">
+              <ion-icon name="time"></ion-icon>
+              {{ appointments[0].slot }}
+            </div>
+          </div>
+          <div class="action-row">
+            <button class="remarcar-button" (click)="remarcarConsulta(appointments[0])">Remarcar</button>
+            <button class="cancelar-button" (click)="cancelarConsulta(appointments[0])">Cancelar</button>
+          </div>
+        </div>
+      </ion-card>
+      <ng-template #noAppointment>
+        <div style="margin: 15px;">No appointments made!</div>
+      </ng-template>
+    </div>
+    <div class="section">
+      <h2 class="title">Todas as consultas</h2>
+      <div class="arrow-down"></div>
+    </div>
+    <div class="card-wrapper">
+      <ion-card *ngFor="let appointment of appointments.slice(1)" class="my-card">
+        <div class="content">
+          <div class="title">Consulta de {{ appointment.type }}</div>
+          <div class="description">Centro de Saúde de Rio de Mouro.</div>
+          <div class="separator"></div>
+          <div class="info-row">
+            <div class="date">
+              <ion-icon name="calendar"></ion-icon>
+              {{ appointment.date }}
+            </div>
+            <div class="time">
+              <ion-icon name="time"></ion-icon>
+              {{ appointment.slot }}
+            </div>
+          </div>
+          <div class="action-row">
+            <button class="remarcar-button" (click)="remarcarConsulta(appointment)">Remarcar</button>
+            <button class="cancelar-button" (click)="cancelarConsulta(appointment)">Cancelar</button>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="addAppointment()" class="custom-color">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="box">
+    <div class="title-box">
+      <h1>Olá {{nome}} 👋</h1>
+      <h2>Quer marcar uma consulta?</h2>
+    </div>
+    <div class="bell">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="box2">
+    <div class="title-box">
+      <h3>Próximas Consultas</h3>
+    </div>
+    <div style="margin-right: 1%; white-space: nowrap;">
+      <h2 (click)="navigateToAllConsultas()">Ver todas &gt;</h2>
+    </div>
+  </div>
+
+  <div>
+    <div *ngFor="let appointment of appointments | slice:0:3">
+      <ion-card class="my-card" (click)="openMenu($event, appointment)">
+        <div class="vertical-line"></div>
+        <div class="content">
+          <div class="text-column">
+            <div class="title">Consulta de {{ appointment.type }}</div>
+            <div class="subtitle">Dia: {{ appointment.date }}</div>
+            <div class="description">{{ appointment.notes }}</div>
+          </div>
+          <div class="text-column">
+            <div class="vertical-text">
+              <div class="top-line">{{ appointment.slot.split("-")[0] }}</div>
+              <div class="bottom-line">{{ appointment.slot.split("-")[1] }}</div>
+            </div>
+          </div>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" (click)="addAppointment()" class="custom-color">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

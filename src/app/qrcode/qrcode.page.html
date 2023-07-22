@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pré-Triagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="goToTab1()">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>Consultas</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button (click)="goToTab2()" selected="true">
+        <ion-icon name="medkit-outline"></ion-icon>     
+        <ion-label>Pré-Triagem</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button (click)="goToTab3()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+  <div style="height: 50%;">
+    <div style="display: flex; align-items: center;justify-content: center; margin: 1%;">
+      <qr-code [value]="generateQRCodeData()"></qr-code>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: center; margin: 1%;">
+      <ion-text color="dark" style="text-align: center;">Tempo restante: {{tempo}}</ion-text>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center;justify-content: center;">
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title style="text-align: center;">Este é o seu código QR</ion-card-title>
+      </ion-card-header>
+      <ion-card-content> 
+        <p>Apresente este código quando entrar nas urgências.</p>
+        <ion-button expand="full" fill="clear" (click)="goToMap('hospital')" class="custom-button">
+          Hospital mais próximo 📍
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="search=='hospital'">
+    <iframe class="superfill" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA_xalZl5Vp470vg0Nw-5_OkW7TydGRhKQ&q=hospital">
+    </iframe>
+  </ng-container>
+  <ng-container *ngIf="search !='hospital'">
+    <iframe class="superfill" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA_xalZl5Vp470vg0Nw-5_OkW7TydGRhKQ&q=centro de saude rio de mouro">
+    </iframe>
+  </ng-container>
+</ion-content>

@@ -1,0 +1,172 @@
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("../../assets/fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("../../assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+}
+
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+ion-card {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+ion-label {
+    margin-top: 0;
+    border: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+ion-fab {
+    ion-fab-list {
+        transform: translateX(-96%);
+    }
+
+    ion-item {
+        width: 131%;
+        height: 100%;
+        --background: rgb(72, 138, 255);
+    }
+}
+
+.box {
+    display: flex;
+    height: 10%;
+    margin-top: 2%;
+    //margin-left: 10%;
+    //margin-right: 10%;
+    align-items: center;
+}
+
+.box2 {
+    display: flex;
+    height: 10%;
+    //margin-left: 10%;
+    //margin-right: 10%;
+    margin-top: 3%;
+    align-items: center;
+}
+
+.title-box{
+    width: 100%;
+    margin-left: 1%;
+}
+
+.bell{
+    padding-top: 2%;
+    margin-right: 1%;
+    white-space: nowrap;
+}
+
+h1{
+    //styleName: material-theme/headline/small;
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+h2{
+    //styleName: material-theme/body/medium;
+    font-family: Roboto-Light;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: left;
+
+}
+
+h3{
+    //styleName: material-theme/body/medium;
+    font-family: Roboto-Light;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    text-align: left;
+
+}
+
+.my-card {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    background-color: #B7F1A3;
+    color: black;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  
+  .vertical-line {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    background: #044622;
+  }
+  
+  .content {
+    display: flex;
+    flex: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .text-column {
+    flex: 1;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  
+  .description {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  
+  .vertical-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+  
+  .top-line {
+    margin-bottom: 4px;
+  }
+  
+  .bottom-line {
+    opacity: 0.6;
+  }
+  
+  ion-fab-button.custom-color::part(native) {
+    background-color: #40A26C;
+    color: #ffffff;
+  }

@@ -1,0 +1,26 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      Pré-Triagem
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="container">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">Declaração de Responsabilidade</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> 
+      <p>Confirme que tomou conhecimento do documento de responsabilização em como não vai mentir neste questionário e que se o fizer encorre em multas de 100 a 500 euros.</p>
+      <ion-checkbox class="checkbox" (ionChange)="checkValue()">I agree to the terms and conditions</ion-checkbox>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="custom-color" expand="block" style="background-color: #40A26C; color: #ffffff; margin-left: 1%; margin-right: 1%;" (click)="goToQuestionaire()">
+    Avançar
+  </ion-button> 
+  
+</div>
+</ion-content>

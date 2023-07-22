@@ -1,0 +1,347 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pré-Triagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark"> 1. Tem algum dos seguintes antecedentes pessoais de saúde?</ion-text>
+      <ion-list class="center">
+        <ion-item>
+          <ion-select [multiple]="true" aria-label="background" value="diabetes" [(ngModel)]="background" (ionChange)="handleChangeBackground($event)">
+            <ion-select-option value="diabetes">diabetes</ion-select-option>
+            <ion-select-option value="hipertensao arterial">hipertensão arterial</ion-select-option>
+            <ion-select-option value="enfarte agudo do miocardio">enfarte agudo do miocardio</ion-select-option>
+            <ion-select-option value="AVC">AVC</ion-select-option>
+            <ion-select-option value="neoplasia">neoplasia</ion-select-option>
+            <ion-select-option value="nenhum dos anteriores">nenhum dos anteriores</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark"> 2. Quais dos seguintes sintomas está a experienciar?</ion-text>
+      <ion-list class="center">
+        <ion-item>
+          <ion-select [multiple]="true" aria-label="dificuldade respiratoria" value="dificuldade respiratoria" [(ngModel)]="symptoms"
+            (ionChange)="handleChangeSymptoms($event)">
+            <ion-select-option value="dificuldade respiratoria">dificuldade respiratória</ion-select-option>
+            <ion-select-option value="dor">dor</ion-select-option>
+            <ion-select-option value="febre">febre</ion-select-option>
+            <ion-select-option value="nauseas e vómitos">nauseas e vómitos</ion-select-option>
+            <ion-select-option value="diarreia">diarreia</ion-select-option>
+            <ion-select-option value="palpitações">palpitações</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dificuldade respiratoria')">
+    <ion-card-content>
+      <ion-text color="dark">3. Numa escala de 1 a 5 como classifica a dificuldade respiratória (1 pouca, 5
+        muita)?</ion-text>
+      <ion-list name="dificulty_level">
+        <ion-radio-group class="my-radio" [(ngModel)]="dificulty_level" (ionChange)="validateDificultyLevel($event)">
+          <ion-item>
+            <ion-radio value="dificulty_1"> 1 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="dificulty_2"> 2 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="dificulty_3"> 3 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="dificulty_4"> 4 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="dificulty_5"> 5 </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          4. Em que zona do corpo se localiza a sua dor?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          3. Em que zona do corpo se localiza a sua dor?
+        </ng-container>
+      </ion-text>
+      <ion-list class="center">
+        <ion-item>
+          <ion-select [multiple]="true" aria-label="pain locale" value="cabeça" [(ngModel)]="pain_locale"
+            (ionChange)="handleChangePainLocale($event)">
+            <ion-select-option value="cabeça">cabeça</ion-select-option>
+            <ion-select-option value="torax">torax</ion-select-option>
+            <ion-select-option value="barriga">barriga</ion-select-option>
+            <ion-select-option value="membros superiores">membros superiores</ion-select-option>
+            <ion-select-option value="membros inferiores">membros inferiores</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          5. Qual a frequência da dor?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          4. Qual a frequência da dor?
+        </ng-container>
+      </ion-text>
+      <ion-list name="pain_frequency">
+        <ion-radio-group class="my-radio" [(ngModel)]="pain_frequency" (ionChange)="validatePainFrequency($event)">
+          <ion-item>
+            <ion-radio value="intermitente"> intermitente </ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="contínua"> contínua </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          6. A dor erradia para outros locais do corpo?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          5. A dor erradia para outros locais do corpo?
+        </ng-container>
+      </ion-text>
+      <ion-list name="pain_radiation">
+        <ion-radio-group class="my-radio" [(ngModel)]="pain_radiation" (ionChange)="validatePainRadiation($event)">
+          <ion-item>
+            <ion-radio value="erradia_nao"> não </ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="erradia_sim"> sim </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          7. A dor agrava-se com o posicionamento?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          6. A dor agrava-se com o posicionamento?
+        </ng-container>
+      </ion-text>
+      <ion-list name="positioning">
+        <ion-radio-group class="my-radio" [(ngModel)]="positioning" (ionChange)="validatePainPositioning($event)">
+          <ion-item>
+            <ion-radio value="posicionamento_nao"> não </ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="posicionamento_sim"> sim </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          8. A dor agrava-se com a deambulação?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          7. A dor agrava-se com a deambulação?
+        </ng-container>
+      </ion-text>
+      <ion-list name="deambulation">
+        <ion-radio-group class="my-radio" [(ngModel)]="ambulation" (ionChange)="validatePainAmbulation($event)">
+          <ion-item>
+            <ion-radio value="deambulacao_nao"> não </ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-radio value="deambulacao_sim"> sim </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card *ngIf="symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria')">
+          9. De 1 a 5 como classifica a dor (1 pouca, 5 muita)?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria')">
+          8. De 1 a 5 como classifica a dor (1 pouca, 5 muita)?
+        </ng-container>
+      </ion-text>
+      <ion-list name="pain_level">
+        <ion-radio-group class="my-radio" [(ngModel)]="pain_level" (ionChange)="validatePainLevel($event)">
+          <ion-item>
+            <ion-radio value="pain_1"> 1 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="pain_2"> 2 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="pain_3"> 3 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="pain_4"> 4 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="pain_5"> 5 </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="symptoms.includes('febre')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor')">
+          4. Qual é a sua temperatura corporal?
+        </ng-container>
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor')">
+          11. Qual é a sua temperatura corporal?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor')">
+          10. Qual é a sua temperatura corporal?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor')">
+          3. Qual é a sua temperatura corporal?
+        </ng-container>
+      </ion-text>
+      <ion-range [ticks]="true" [snaps]="true" min="37.5" max="40" step="0.1" [(ngModel)]="temperature" [pin]="true" [pinFormatter]="pinFormatter"></ion-range>
+      <ion-text class="center">Temperatura: {{temperature}}°C</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && symptoms.includes('febre')">
+          11. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && !symptoms.includes('febre')">
+          10. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && !symptoms.includes('febre')">
+          4. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && symptoms.includes('febre')">
+          5. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && !symptoms.includes('febre')">
+          10. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && symptoms.includes('febre')">
+          4. À quanto tempo experiência estes sintomas?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && !symptoms.includes('febre')">
+          3. À quanto tempo experiência estes sintomas?
+        </ng-container>
+      </ion-text>
+      <ion-list name="symptoms duration">
+        <ion-radio-group class="my-radio" [(ngModel)]="symptoms_duration" (ionChange)="validateSymptomsDuration($event)">
+          <ion-item>
+            <ion-radio value="horas"> horas </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="dias"> dias </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="semanas"> semanas </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="meses"> meses </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!symptoms.includes('dor')">
+    <ion-card-content>
+      <ion-text color="dark">
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('febre')">
+          6. De 1 a 5 como define a frequência dos sintomas (1 pouco frequentes, 5 muito frequentes)?
+        </ng-container>
+        <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('febre')">
+          5. De 1 a 5 como define a frequência dos sintomas (1 pouco frequentes, 5 muito frequentes)?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('febre')">
+          4. De 1 a 5 como define a frequência dos sintomas (1 pouco frequentes, 5 muito frequentes)?
+        </ng-container>
+        <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && symptoms.includes('febre')">
+          5. De 1 a 5 como define a frequência dos sintomas (1 pouco frequentes, 5 muito frequentes)?
+        </ng-container>
+      </ion-text>
+      <ion-list name="pain_level">
+        <ion-radio-group class="my-radio" [(ngModel)]="frequency_level" (ionChange)="validateFrequencyLevel($event)">
+          <ion-item>
+            <ion-radio value="frequency_1"> 1 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="frequency_2"> 2 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="frequency_3"> 3 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="frequency_4"> 4 </ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-radio value="frequency_5"> 5 </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button color="custom-color" expand="block" style="background-color: #40A26C; color: #ffffff;" (click)="confirmAnswers()">
+    Avançar
+  </ion-button> 
+</ion-content>

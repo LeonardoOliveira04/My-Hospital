@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="presentAlertLostProgress()">
+        <ion-icon slot="icon-only" name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>notificacoes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="toggle-container">
+    <h3 class="toggle-title">Consultas</h3>
+
+    <ion-item>
+      <ion-label>Ativar notificações de aviso sobre consulta</ion-label>
+      <ion-toggle [(ngModel)]="consultaToggle" (ngModelChange)="updateChangesMade()"></ion-toggle>
+    </ion-item>
+    <div class="divider"></div>
+
+    <ion-item>
+      <ion-label>Quanto tempo antes da consulta</ion-label>
+      <ion-select [(ngModel)]="consultaDuration" (ngModelChange)="updateChangesMade()">
+        <ion-select-option value="6">6 horas</ion-select-option>
+        <ion-select-option value="5">5 horas</ion-select-option>
+        <ion-select-option value="4">4 horas</ion-select-option>
+        <ion-select-option value="3">3 horas</ion-select-option>
+        <ion-select-option value="2">2 horas</ion-select-option>
+        <ion-select-option value="1">1 hora</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="toggle-divider"></div>
+
+    <h3 class="toggle-title">Pré-Triagem</h3>
+
+    <ion-item>
+      <ion-label>Ativar notificações de duração da Pré-Triagem</ion-label>
+      <ion-toggle [(ngModel)]="triagemToggle" (ngModelChange)="updateChangesMade()"></ion-toggle>
+    </ion-item>
+    <div class="divider"></div>
+
+    <ion-item>
+      <ion-label>Quanto tempo antes da duração da Pré-Triagem terminar</ion-label>
+      <ion-select [(ngModel)]="triagemDuration" (ngModelChange)="updateChangesMade()">
+        <ion-select-option value="45">45 min</ion-select-option>
+        <ion-select-option value="30">30 min</ion-select-option>
+        <ion-select-option value="15">15 min</ion-select-option>
+        <ion-select-option value="10">10 min</ion-select-option>
+        <ion-select-option value="5">5 min</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </div>
+  <ion-button color="success" expand="block" style="padding-left:0.5%; padding-right:0.5%;" (click)="saveSettings()" *ngIf="changesMade">
+    Guardar
+  </ion-button>
+</ion-content>

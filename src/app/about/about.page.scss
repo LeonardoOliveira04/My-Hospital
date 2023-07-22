@@ -1,0 +1,81 @@
+.my-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+  position: relative;
+  background-color: #B7F1A3;
+  color: black;
+  height: 20%; /* Adjust the height to your desired value */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.separator {
+  width: 100%;
+  margin: 10px 0;
+  border-top: 1px solid black;
+}
+
+.info-row {
+  display: flex;
+  justify-content: center; /* Center the last two lines horizontally */
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.date,
+.time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center; /* Center the text within the columns */
+  flex: 1; /* Distribute the available space equally between date and time */
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add equal space on both sides of the buttons */
+  margin-top: 10px;
+  width: 100%; /* Expand the action row to full width */
+}
+
+.remarcar-button,
+.cancelar-button {
+  flex: 0 0 50%; /* Divide the width equally between the buttons */
+  padding: 10px 0; /* Adjust the vertical padding */
+  text-align: center; /* Center the button text */
+  max-width: 120px; /* Limit the maximum width of the buttons */
+  margin-left: auto; /* Push the buttons to the right within their column */
+  margin-right: auto; /* Push the buttons to the left within their column */
+  border-radius: 20px; /* Add round corners to the buttons */
+}
+
+.remarcar-button {
+  background-color: #044622; /* Set the background color of the "Remarcar" button */
+}
+
+.cancelar-button {
+  background-color: transparent; /* Remove the background color from the "Cancelar" button */
+  color: #044622; /* Set the text color of the "Cancelar" button */
+}

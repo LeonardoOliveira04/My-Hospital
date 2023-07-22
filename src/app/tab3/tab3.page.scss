@@ -1,0 +1,104 @@
+.custom-card ion-item {
+  --color: white;
+}
+
+
+.button-container {
+  margin-top: 2%;
+  padding: 1% 5%;
+}
+
+.button-container ion-button {
+  color: #ffffff;
+  text-align: left;
+  position: relative;
+  margin: 0 5%;
+}
+
+.button-container ion-button::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.button-container ion-button .button-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-container ion-button .button-inner .button-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.button-container ion-button .button-inner ion-icon {
+  margin-left: 2%;
+}
+
+.button-container .divider {
+  margin: 1% 5%;
+  height: 1px;
+  background-color: #000;
+}
+
+.button-container .divider.thicker {
+  margin: 2% 5%;
+  height: 2px;
+}
+
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.avatar {
+  width: 30%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.avatar-button {
+  margin-top: 2%;
+}
+
+.file-input-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+.file-input-label ion-icon {
+  font-size: 24px;
+  color: #333;
+}
+
+
+
+.custom-card {
+  --ion-background-color: #40A26C;
+}
+
+.custom-card-content {
+  background-color: #40A26C;
+}
+

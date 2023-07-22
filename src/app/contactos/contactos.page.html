@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-container" [fullscreen]="true">
+  <div class="card-container">
+    <div class="card-title">Médico(a) de família</div>
+    <ion-card class="card-padding">
+      <ion-card-header>
+        <ion-card-title>Dra. Cristina Ferreira</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item style="font-size: 11px;">
+          <ion-label>Numero:</ion-label>
+          <ion-text>XXXXXXXXX</ion-text>
+          <ion-button class="button-container" slot="end"  (click)="callNumber('XXXXXXXXX')">Ligar</ion-button>
+        </ion-item>
+        <ion-item style="font-size: 11px;">
+          <ion-label>Email:</ion-label>
+          <ion-text>XXXX@gmail.com</ion-text>
+          <ion-button class="button-container" slot="end"  (click)="sendEmail('XXXX@gmail.com')">Escrever</ion-button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="card-container">
+    <div class="card-title">Unidade de Saúde</div>
+    <ion-card class="card-padding">
+      <ion-card-header>
+        <ion-card-title>Centro de Saúde de Rio de Mouro</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item style="font-size: 11px;">
+          <ion-label>Numero:</ion-label>
+          <ion-text>YYYYYYYYY</ion-text>
+          <ion-button class="button-container" slot="end"  (click)="callNumber('YYYYYYYYY')">Ligar</ion-button>
+        </ion-item>
+        <ion-item style="font-size: 11px;">
+          <ion-label>Email:</ion-label>
+          <ion-text>YYYY@gmail.com</ion-text>
+          <ion-button class="button-container" slot="end" (click)="sendEmail('YYYY@gmail.com')">Escrever</ion-button>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
