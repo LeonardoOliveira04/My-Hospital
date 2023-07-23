@@ -38,7 +38,7 @@
             <ion-select-option value="dificuldade respiratoria">dificuldade respiratória</ion-select-option>
             <ion-select-option value="dor">dor</ion-select-option>
             <ion-select-option value="febre">febre</ion-select-option>
-            <ion-select-option value="nauseas e vómitos">nauseas e vómitos</ion-select-option>
+            <ion-select-option value="nauseas e vómitos">náuseas e vómitos</ion-select-option>
             <ion-select-option value="diarreia">diarreia</ion-select-option>
             <ion-select-option value="palpitações">palpitações</ion-select-option>
           </ion-select>
@@ -256,25 +256,25 @@
     <ion-card-content>
       <ion-text color="dark">
         <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && symptoms.includes('febre')">
-          11. À quanto tempo experiência estes sintomas?
+          11. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && !symptoms.includes('febre')">
-          10. À quanto tempo experiência estes sintomas?
+          10. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && !symptoms.includes('febre')">
-          4. À quanto tempo experiência estes sintomas?
+          4. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && symptoms.includes('febre')">
-          5. À quanto tempo experiência estes sintomas?
+          5. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && symptoms.includes('dor') && !symptoms.includes('febre')">
-          10. À quanto tempo experiência estes sintomas?
+          10. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && symptoms.includes('febre')">
-          4. À quanto tempo experiência estes sintomas?
+          4. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
         <ng-container *ngIf="!symptoms.includes('dificuldade respiratoria') && !symptoms.includes('dor') && !symptoms.includes('febre')">
-          3. À quanto tempo experiência estes sintomas?
+          3. Á quanto tempo experiêncía estes sintomas?
         </ng-container>
       </ion-text>
       <ion-list name="symptoms duration">
@@ -299,7 +299,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="!symptoms.includes('dor')">
+  <ion-card *ngIf="!symptoms.includes('dor') || (symptoms.includes('dor') && symptoms.length > 1)">
     <ion-card-content>
       <ion-text color="dark">
         <ng-container *ngIf="symptoms.includes('dificuldade respiratoria') && symptoms.includes('febre')">

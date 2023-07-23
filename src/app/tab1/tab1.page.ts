@@ -16,9 +16,10 @@ export class Tab1Page implements OnInit {
   nome:any;
 
   constructor(public router: Router, private service: FireserviceService, public popoverController: PopoverController, private alertController: AlertController, private actionSheetController: ActionSheetController, private uservice: UserServiceService) { 
-    this.nome = uservice.getName();
+    
   }
   ngOnInit(): void {
+    this.nome = this.uservice.getName();
     this.getAppointments();
   }
 

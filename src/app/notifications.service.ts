@@ -33,11 +33,6 @@ export class NotificationsService {
   }
 
   scheduleNotification(date: string, time: string, message: string, idn: any) {
-    console.log("Notification date: ", date);
-    console.log("Notification time: ", time);
-    console.log("Notification message: ", message);
-    console.log("Notification id: ", idn);
-  
     // Parse the date and time strings into a Date object
     const [day, month, year] = date.split('-');
     const [hours, minutes] = time.split('-')[0].split(':');

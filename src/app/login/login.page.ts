@@ -94,4 +94,8 @@ export class LoginPage implements OnInit {
   goRegisterPage() {
     this.router.navigate(['/register']);
   }
+  
+  goChangePassword() {
+    this.router.navigate(['/mudar-password']);
+  }
 }

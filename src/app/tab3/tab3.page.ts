@@ -58,10 +58,10 @@ export class Tab3Page implements ViewDidEnter{
   }
 
   goToSair() {
-    this.appService.unsubscribeOnLogOut();
-    this.logService.logout();
-    //this.logService.doLogout();
-    this.router.navigate(['/login']);
+    //this.appService.unsubscribeOnLogOut();
+    //this.logService.logout();
+    this.logService.doLogout();
+    this.router.navigate(['/login']); 
   }
 
 

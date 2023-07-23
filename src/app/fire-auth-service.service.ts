@@ -20,9 +20,9 @@ export class FireauthService {
 
 
   logout() {
-    this.afAuth.signOut();
-    this.firebaseService.clearUser();
-    localStorage.removeItem(this.USER_STORAGE_KEY);
+    //this.afAuth.signOut();
+    //this.firebaseService.clearUser();
+    //localStorage.removeItem(this.USER_STORAGE_KEY);
     this.doLogout();
   }
 
@@ -57,14 +57,14 @@ export class FireauthService {
   }
 
   doLogout() {
+    this.firebaseService.clearUser();
+    localStorage.removeItem(this.USER_STORAGE_KEY);
     return new Promise<void>((resolve, reject) => {
       this.afAuth
         .signOut()
         .then(() => {
-          this.firebaseService.unsubscribeOnLogOut();
           resolve();
-          this.firebaseService.clearUser();
-          localStorage.removeItem(this.USER_STORAGE_KEY);
+          
         })
         .catch((error: any) => {
           console.log(error);

@@ -41,27 +41,27 @@ export class TriageQuestionairePage implements OnInit {
   }
 
   validateDificultyLevel(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.dificulty_level);
   }
 
   validatePainFrequency(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.pain_frequency);
   }
 
   validatePainRadiation(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.pain_radiation);
   }
 
   validatePainPositioning(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.positioning);
   }
 
   validatePainAmbulation(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.ambulation);
   }
 
   validateSymptomsDuration(event:any){
-    console.log('Selected value: ', this.pain_level);
+    console.log('Selected value: ', this.symptoms_duration);
   }
 
   handleChangeSymptoms(ev:any) {
@@ -139,24 +139,28 @@ export class TriageQuestionairePage implements OnInit {
     let advance = true;
     if(this.symptoms.includes("dificuldade respiratoria")){
       if(this.dificulty_level == '0' || this.frequency_level == '0' || this.symptoms_duration == '0'){
+        console.log("Entrou dificuldade respiratoria");
         advance = false;
         this.presentAlertNoChoice();
       }
     }
-    else if(this.symptoms.includes("dor")){
+    if(this.symptoms.includes("dor")){
       if(this.pain_locale.length == 0 || this.pain_frequency == '0' || this.pain_radiation == '0' || this.positioning == '0' || this.ambulation == '0' || this.pain_level == '0'){
+        console.log("Entrou dor");
         advance = false;
         this.presentAlertNoChoice();
       }
     }
-    else if(this.symptoms.includes("febre")){
+    if(this.symptoms.includes("febre")){
       if(this.temperature == '0' || this.frequency_level == '0' || this.symptoms_duration == '0'){
+        console.log("Entrou febre");
         advance = false;
         this.presentAlertNoChoice();
       }
     }
     else{
       if(this.frequency_level == '0' || this.symptoms_duration == '0'){
+        console.log("Entrou outros");
         advance = false;
         this.presentAlertNoChoice();
       }
